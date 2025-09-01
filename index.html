@@ -1,0 +1,286 @@
+!<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>الأستاذ حمادة غازي - تعليم اللغة العربية للثانوي   </title>
+<!-- خطوط عربية أنيقة -->
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<!-- أيقونات -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+<!-- الهيدر -->
+<header class="header">
+  <nav class="nav-container">
+    <a href="#home" class="logo">
+      <i class="fas fa-graduation-cap"></i>
+      القمة
+    </a>
+    
+    <ul class="nav-menu">
+      <li><a href="#home" class="nav-link">الرئيسية</a></li>
+      <li><a href="#about" class="nav-link">من أنا</a></li>
+      <li><a href="#contact" class="nav-link">تواصل</a></li>
+      <li><a href="#booking" class="nav-link">حجز</a></li>
+ <li><button class="btn btn-outline" onclick="window.location.href='login.html'">تسجيل الدخول</button></li>
+      <li><button class="btn btn-primary"onclick="window.location.href='register.html' ">تسجيل جديد</button></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- قسم اختيار الصف -->
+<section class="grade-selection" id="home">
+  <h2 class="grade-title">اختر صفك الدراسي</h2>
+  <p class="grade-subtitle">اختر الصف المناسب لك للوصول إلى المحتوى التعليمي المخصص</p>
+  
+  <div class="grade-cards">
+    <div class="grade-card" onclick="selectGrade('first')">
+      <i class="fas fa-1"></i>
+      <h3>الصف الأول الثانوي</h3>
+      <p>محتوى تعليمي متكامل لطلاب الصف الأول الثانوي في اللغة العربية</p>
+    </div>
+    
+    <div class="grade-card" onclick="selectGrade('second')">
+      <i class="fas fa-2"></i>
+      <h3>الصف الثاني الثانوي</h3>
+      <p>دروس وشروحات متقدمة لطلاب الصف الثاني الثانوي</p>
+    </div>
+    
+    <div class="grade-card" onclick="selectGrade('third')">
+      <i class="fas fa-3"></i>
+      <h3>الصف الثالث الثانوي</h3>
+      <p>تحضير كامل لامتحانات الثانوية العامة في اللغة العربية</p>
+    </div>
+  </div>
+</section>
+
+<!-- محتوى تعليمي -->
+<main class="content-section" id="content">
+  <h2 class="section-title">المحتوى التعليمي</h2>
+  
+  <div class="content-grid">
+    <div class="content-card">
+      <i class="fas fa-book"></i>
+      <h3>الدروس والشروحات</h3>
+      <p>شروحات مفصلة لجميع دروس اللغة العربية مع أمثلة وتطبيقات عملية</p>
+      <ul class="content-list">
+        <li><i class="fas fa-check-circle"></i> النحو والصرف</li>
+        <li><i class="fas fa-check-circle"></i> البلاغة والأدب</li>
+        <li><i class="fas fa-check-circle"></i> النصوص والقراءة</li>
+        <li><i class="fas fa-check-circle"></i> التعبير والإملاء</li>
+      </ul>
+    </div>
+    
+    <div class="content-card">
+      <i class="fas fa-file-pdf"></i>
+      <h3>ملفات PDF</h3>
+      <p>ملخصات وملفات PDF شاملة لجميع أجزاء المنهج الدراسي</p>
+      <ul class="content-list">
+        <li><i class="fas fa-check-circle"></i> ملخصات النحو</li>
+        <li><i class="fas fa-check-circle"></i> قواعد الإملاء</li>
+        <li><i class="fas fa-check-circle"></i> أساليب البلاغة</li>
+        <li><i class="fas fa-check-circle"></i> نماذج التعبير</li>
+      </ul>
+    </div>
+    
+    <div class="content-card">
+      <i class="fas fa-video"></i>
+      <h3>فيديوهات تعليمية</h3>
+      <p>دروس مرئية لشرح القواعد والنصوص بأسلوب مبسط وسهل</p>
+      <ul class="content-list">
+        <li><i class="fas fa-check-circle"></i> شرح القواعد النحوية</li>
+        <li><i class="fas fa-check-circle"></i> تحليل النصوص الأدبية</li>
+        <li><i class="fas fa-check-circle"></i> حلول التمارين</li>
+        <li><i class="fas fa-check-circle"></i> نصائح للامتحانات</li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="content-grid">
+    <div class="content-card">
+      <i class="fas fa-tasks"></i>
+      <h3>تمارين وتطبيقات</h3>
+      <p>تمارين تفاعلية لتطبيق القواعد وتحسين المهارات اللغوية</p>
+      <ul class="content-list">
+        <li><i class="fas fa-check-circle"></i> تدريبات نحوية</li>
+        <li><i class="fas fa-check-circle"></i> تمارين إملائية</li>
+        <li><i class="fas fa-check-circle"></i> أسئلة بلاغية</li>
+        <li><i class="fas fa-check-circle"></i> نماذج إجابات</li>
+      </ul>
+    </div>
+    
+    <div class="content-card">
+      <i class="fas fa-chart-line"></i>
+      <h3>امتحانات وتقييم</h3>
+      <p>اختبارات شهرية وامتحانات تجريبية مع التصحيح الآلي</p>
+      <ul class="content-list">
+        <li><i class="fas fa-check-circle"></i> امتحانات شهرية</li>
+        <li><i class="fas fa-check-circle"></i> نماذج امتحانات</li>
+        <li><i class="fas fa-check-circle"></i> اختبارات تجريبية</li>
+        <li><i class="fas fa-check-circle"></i> تقارير الأداء</li>
+      </ul>
+    </div>
+    
+    <div class="content-card">
+      <i class="fas fa-trophy"></i>
+      <h3>الإنجازات والمتابعة</h3>
+      <p>تتبع تقدمك التعليمي وتحفيزك من خلال نظام المكافآت</p>
+      <ul class="content-list">
+        <li><i class="fas fa-check-circle"></i> متابعة التقدم</li>
+        <li><i class="fas fa-check-circle"></i> شهادات إنجاز</li>
+        <li><i class="fas fa-check-circle"></i> نقاط وتحفيز</li>
+        <li><i class="fas fa-check-circle"></i> توقعات النجاح</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<!-- قسم الإحصائيات -->
+<section class="stats-section">
+  <h2 class="section-title" style="color: white;">إحصائيات المنصة</h2>
+  
+  <div class="stats-grid">
+    <div class="stat-item">
+      <div class="stat-number" data-count="1500">0</div>
+      <div class="stat-label">طالب مسجل</div>
+    </div>
+    
+    <div class="stat-item">
+      <div class="stat-number" data-count="500">0</div>
+      <div class="stat-label">درس تعليمي</div>
+    </div>
+    
+    <div class="stat-item">
+      <div class="stat-number" data-count="98">0</div>
+      <div class="stat-label">% معدل النجاح</div>
+    </div>
+    
+    <div class="stat-item">
+      <div class="stat-number" data-count="3">0</div>
+      <div class="stat-label">سنوات خبرة</div>
+    </div>
+  </div>
+</section>
+
+<!-- الفوتر -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-section">
+      <h3>عن الأستاذ حمادة غازي</h3>
+      <p>مدرس لغة عربية متخصص في تدريس طلاب المرحلة الثانوية، حاصل على درجة الماجستير في اللغة العربية وآدابها.</p>
+    </div>
+    
+    <div class="footer-section">
+      <h3>روابط سريعة</h3>
+      <ul>
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#about">من أنا</a></li>
+        <li><a href="#content">المحتوى التعليمي</a></li>
+        <li><a href="#contact">اتصل بنا</a></li>
+      </ul>
+    </div>
+    
+    <div class="footer-section">
+      <h3>معلومات التواصل</h3>
+      <p>📧 info@hamada-gazi.com</p>
+      <p>📞 0123456789</p>
+      <p>📍 القاهرة، مصر</p>
+    </div>
+  </div>
+  
+  <div class="social-links">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  
+  <div class="copyright">
+    © 2024 الأستاذ حمادة غازي. جميع الحقوق محفوظة.
+  </div>
+</footer>
+
+<script>
+  // وظيفة اختيار الصف
+  function selectGrade(grade) {
+    let gradeName = '';
+    switch(grade) {
+      case 'first':
+        gradeName = 'الصف الأول الثانوي';
+        break;
+      case 'second':
+        gradeName = 'الصف الثاني الثانوي';
+        break;
+      case 'third':
+        gradeName = 'الصف الثالث الثانوي';
+        break;
+    }
+    
+    alert(`تم اختيار ${gradeName}. سيتم تحميل المحتوى التعليمي المخصص لهذا الصف.`);
+    
+    // يمكن هنا إضافة تحميل المحتوى حسب الصف المختار
+    loadGradeContent(grade);
+  }
+  
+  function loadGradeContent(grade) {
+    // هنا سيتم تحميل المحتوى حسب الصف المختار
+    console.log(`تحميل محتوى ${grade}`);
+  }
+  
+  // وظائف التسجيل
+  function showLogin() {
+    alert('نافذة تسجيل الدخول ستظهر هنا. يمكنك إدخال بياناتك للوصول إلى حسابك.');
+  }
+  
+  function showRegister() {
+    alert('نافذة التسجيل الجديد ستظهر هنا. يمكنك إنشاء حساب جديد للوصول إلى جميع المزايا.');
+  }
+  
+  // تأثير العد للإحصائيات
+  function animateNumbers() {
+    const counters = document.querySelectorAll('.stat-number');
+    const speed = 200;
+    
+    counters.forEach(counter => {
+      const target = +counter.getAttribute('data-count');
+      const count = +counter.innerText;
+      const increment = Math.ceil(target / speed);
+      
+      if (count < target) {
+        counter.innerText = count + increment;
+        setTimeout(() => animateNumbers(), 1);
+      } else {
+        counter.innerText = target;
+      }
+    });
+  }
+  
+  // تفعيل العد عند التمرير
+  window.addEventListener('scroll', function() {
+    const statsSection = document.querySelector('.stats-section');
+    const sectionPosition = statsSection.getBoundingClientRect().top;
+    const screenPosition = window.innerHeight / 1.3;
+    
+    if (sectionPosition < screenPosition) {
+      animateNumbers();
+    }
+  });
+  
+  // تأثيرات نانو على الأزرار
+  document.querySelectorAll('.btn').forEach(btn => {
+    btn.addEventListener('mouseenter', () => {
+      btn.style.transform = 'translateY(-2px)';
+      btn.style.boxShadow = '0 6px 20px rgba(37, 99, 235, 0.4)';
+    });
+    
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'translateY(0)';
+      btn.style.boxShadow = '0 4px 15px rgba(37, 99, 235, 0.3)';
+    });
+  });
+</script>
+</body>
+</html>
