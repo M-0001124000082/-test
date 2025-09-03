@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
+
 <!-- الهيدر -->
 <header class="header">
   <nav class="nav-container">
@@ -21,9 +22,9 @@
     
     <ul class="nav-menu">
       <li><a href="#home" class="nav-link">الرئيسية</a></li>
-      <li><a href="#about" class="nav-link">من أنا</a></li>
-      <li><a href="#contact" class="nav-link">تواصل</a></li>
-      <li><a href="#booking" class="nav-link">حجز</a></li>
+      <li><a href="about.html" class="nav-link">من نحن</a></li>
+      <li><a href="contact.html" class="nav-link">تواصل</a></li>
+      <li><a href="booking.html" class="nav-link"   >حجز</a></li>
  <li><button class="btn btn-outline" onclick="window.location.href='login.html'">تسجيل الدخول</button></li>
       <li><button class="btn btn-primary"onclick="window.location.href='register.html' ">تسجيل جديد</button></li>
     </ul>
@@ -36,7 +37,7 @@
   <p class="grade-subtitle">اختر الصف المناسب لك للوصول إلى المحتوى التعليمي المخصص</p>
   
   <div class="grade-cards">
-    <div class="grade-card" onclick="selectGrade('first')">
+    <div class="grade-card" onclick="selectGrade('first')" > 
       <i class="fas fa-1"></i>
       <h3>الصف الأول الثانوي</h3>
       <p>محتوى تعليمي متكامل لطلاب الصف الأول الثانوي في اللغة العربية</p>
@@ -143,22 +144,22 @@
   
   <div class="stats-grid">
     <div class="stat-item">
-      <div class="stat-number" data-count="1500">0</div>
+      <div class="stat-number" data-count="">0</div>
       <div class="stat-label">طالب مسجل</div>
     </div>
     
     <div class="stat-item">
-      <div class="stat-number" data-count="500">0</div>
+      <div class="stat-number" data-count="">0</div>
       <div class="stat-label">درس تعليمي</div>
     </div>
     
     <div class="stat-item">
-      <div class="stat-number" data-count="98">0</div>
+      <div class="stat-number" data-count="">0</div>
       <div class="stat-label">% معدل النجاح</div>
     </div>
     
     <div class="stat-item">
-      <div class="stat-number" data-count="3">0</div>
+      <div class="stat-number" data-count="">0</div>
       <div class="stat-label">سنوات خبرة</div>
     </div>
   </div>
@@ -169,7 +170,7 @@
   <div class="footer-content">
     <div class="footer-section">
       <h3>عن الأستاذ حمادة غازي</h3>
-      <p>مدرس لغة عربية متخصص في تدريس طلاب المرحلة الثانوية، حاصل على درجة الماجستير في اللغة العربية وآدابها.</p>
+      <p>مدرس لغة عربية متخصص في تدريس طلاب المرحلة الثانوية ، خبره اكثر من 15 عام في التعليم الثانوي .</p>
     </div>
     
     <div class="footer-section">
@@ -185,8 +186,9 @@
     <div class="footer-section">
       <h3>معلومات التواصل</h3>
       <p>📧 info@hamada-gazi.com</p>
-      <p>📞 0123456789</p>
-      <p>📍 القاهرة، مصر</p>
+      <p>📞 01224817286</p>
+      <p>📞01555457286</p>
+      <p>📍 الاسكندريه ،السيوف ، مصر</p>
     </div>
   </div>
   
@@ -199,8 +201,11 @@
   </div>
   
   <div class="copyright">
-    © 2024 الأستاذ حمادة غازي. جميع الحقوق محفوظة.
+    © 2025 الأستاذ حمادة غازي. جميع الحقوق محفوظة.
+
   </div>
+
+  
 </footer>
 
 <script>
@@ -226,9 +231,19 @@
   }
   
   function loadGradeContent(grade) {
-    // هنا سيتم تحميل المحتوى حسب الصف المختار
-    console.log(`تحميل محتوى ${grade}`);
+  const urls = {
+    first: 'https://drive.google.com/drive/folders/your-first-grade-folder-id',
+    second: 'https://drive.google.com/drive/folders/your-second-grade-folder-id',
+    third: 'https://drive.google.com/drive/folders/your-third-grade-folder-id'
+  };
+
+  if (urls[grade]) {
+    window.open(urls[grade], '_blank'); // يفتح الرابط في نافذة جديدة
+  } else {
+    console.log(`لا يوجد رابط للصف: ${grade}`);
   }
+}
+
   
   // وظائف التسجيل
   function showLogin() {
@@ -282,5 +297,6 @@
     });
   });
 </script>
+
 </body>
 </html>

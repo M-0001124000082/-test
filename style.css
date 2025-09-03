@@ -95,7 +95,7 @@
   .nav-link:hover::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -10px;
     left: 50%;
     transform: translateX(-50%);
     width: 20px;
@@ -484,3 +484,4 @@
   color: #005c86;
     animation: glowPulse 1.5s infinite alternate;
 }
+
