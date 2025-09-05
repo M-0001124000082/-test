@@ -209,94 +209,39 @@
 </footer>
 
 <script>
-  // وظيفة اختيار الصف
-  function selectGrade(grade) {
-    let gradeName = '';
-    switch(grade) {
-      case 'first':
-        gradeName = 'الصف الأول الثانوي';
-        break;
-      case 'second':
-        gradeName = 'الصف الثاني الثانوي';
-        break;
-      case 'third':
-        gradeName = 'الصف الثالث الثانوي';
-        break;
-    }
-    
-    alert(`تم اختيار ${gradeName}. سيتم تحميل المحتوى التعليمي المخصص لهذا الصف.`);
-    
-    // يمكن هنا إضافة تحميل المحتوى حسب الصف المختار
-    loadGradeContent(grade);
-  }
-  
-  function loadGradeContent(grade) {
-  const urls = {
-    first: 'https://drive.google.com/drive/folders/your-first-grade-folder-id',
-    second: 'https://drive.google.com/drive/folders/your-second-grade-folder-id',
-    third: 'https://drive.google.com/drive/folders/your-third-grade-folder-id'
-  };
+let gradeLinks = {}; // هنا هنخزن البيانات اللي جاية من قاعدة البيانات
 
-  if (urls[grade]) {
-    window.open(urls[grade], '_blank'); // يفتح الرابط في نافذة جديدة
+// تحميل الروابط من PHP
+fetch("get_links.php")
+  .then(response => response.json())
+  .then(data => {
+    gradeLinks = data;
+    console.log("تم تحميل الروابط:", gradeLinks);
+  });
+
+// وظيفة اختيار الصف
+function selectGrade(grade) {
+  let gradeName = '';
+  switch(grade) {
+    case 'first':
+      gradeName = 'الصف الأول الثانوي';
+      break;
+    case 'second':
+      gradeName = 'الصف الثاني الثانوي';
+      break;
+    case 'third':
+      gradeName = 'الصف الثالث الثانوي';
+      break;
+  }
+
+  if (gradeLinks[grade]) {
+    window.open(gradeLinks[grade], "_blank");
   } else {
-    console.log(`لا يوجد رابط للصف: ${grade}`);
+    alert(`لا يوجد محتوى مسجل للصف: ${gradeName}`);
   }
 }
-
-  
-  // وظائف التسجيل
-  function showLogin() {
-    alert('نافذة تسجيل الدخول ستظهر هنا. يمكنك إدخال بياناتك للوصول إلى حسابك.');
-  }
-  
-  function showRegister() {
-    alert('نافذة التسجيل الجديد ستظهر هنا. يمكنك إنشاء حساب جديد للوصول إلى جميع المزايا.');
-  }
-  
-  // تأثير العد للإحصائيات
-  function animateNumbers() {
-    const counters = document.querySelectorAll('.stat-number');
-    const speed = 200;
-    
-    counters.forEach(counter => {
-      const target = +counter.getAttribute('data-count');
-      const count = +counter.innerText;
-      const increment = Math.ceil(target / speed);
-      
-      if (count < target) {
-        counter.innerText = count + increment;
-        setTimeout(() => animateNumbers(), 1);
-      } else {
-        counter.innerText = target;
-      }
-    });
-  }
-  
-  // تفعيل العد عند التمرير
-  window.addEventListener('scroll', function() {
-    const statsSection = document.querySelector('.stats-section');
-    const sectionPosition = statsSection.getBoundingClientRect().top;
-    const screenPosition = window.innerHeight / 1.3;
-    
-    if (sectionPosition < screenPosition) {
-      animateNumbers();
-    }
-  });
-  
-  // تأثيرات نانو على الأزرار
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('mouseenter', () => {
-      btn.style.transform = 'translateY(-2px)';
-      btn.style.boxShadow = '0 6px 20px rgba(37, 99, 235, 0.4)';
-    });
-    
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = 'translateY(0)';
-      btn.style.boxShadow = '0 4px 15px rgba(37, 99, 235, 0.3)';
-    });
-  });
 </script>
+
 
 </body>
 </html>

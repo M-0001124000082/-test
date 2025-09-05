@@ -1,12 +1,14 @@
 <?php
 $servername = "localhost";
 $username   = "root";   // الافتراضي في XAMPP
-$password   = "";       // اتركه فاضي لو ما حطيتش باسورد للـ MySQL
-$dbname     = "users_db"; // اسم قاعدة البيانات اللي أنشأتها
+$password   = "";       // الافتراضي بدون كلمة مرور
+$dbname     = "users_db"; // اسم قاعدة البيانات عندك
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+// إنشاء الاتصال
+$conn = mysqli_connect($servername, $username, $password, $dbname);
 
-if ($conn->connect_error) {
-    die("فشل الاتصال: " . $conn->connect_error);
+// التحقق من الاتصال
+if (!$conn) {
+    die("فشل الاتصال بقاعدة البيانات: " . mysqli_connect_error());
 }
 ?>

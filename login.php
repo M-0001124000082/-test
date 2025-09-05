@@ -1,48 +1,46 @@
 <?php
 session_start();
-include "db.php";
+include 'db.php'; // ملف الاتصال بقاعدة البيانات
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email    = mysqli_real_escape_string($conn, $_POST['email']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
 
-    // التحقق من المستخدم
-    $sql = "SELECT * FROM users WHERE email='$email' AND password=MD5('$password')";
-    $result = mysqli_query($conn, $sql);
-
-    if (mysqli_num_rows($result) == 1) {
-        $_SESSION['user'] = $email;
-        header("Location: dashboard.php");
+    // التأكد أن الحقول مش فاضية
+    if (empty($email) || empty($password)) {
+        echo "يرجى إدخال البريد الإلكتروني وكلمة المرور";
         exit();
+    }
+
+    // البحث عن المستخدم
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        $user = $result->fetch_assoc();
+
+        // التحقق من كلمة السر
+if ($password === $user['password']) {
+
+
+          $_SESSION['user_id'] = $user['id'];
+            $_SESSION['role']    = $user['role'];
+
+
+            // توجيه حسب الدور
+            if ($user['role'] === "admin") {
+                header("Location: dashboard.php");
+            } else {
+                header("Location: index.html"); 
+            }
+            exit();
+        } else {
+            echo "❌ كلمة المرور غير صحيحة";
+        }
     } else {
-        $error = "البريد أو كلمة المرور غير صحيحة";
+        echo "❌ البريد الإلكتروني غير موجود";
     }
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <title>تسجيل الدخول</title>
-  <style>
-    body {font-family: Tahoma; background: #f0f0f0; display:flex; justify-content:center; align-items:center; height:100vh;}
-    .box {background:#fff; padding:30px; border-radius:10px; box-shadow:0 0 10px #aaa; width:300px;}
-    input {width:100%; padding:10px; margin:10px 0; border:1px solid #ccc; border-radius:5px;}
-    button {width:100%; padding:10px; background:#3498db; color:#fff; border:none; border-radius:5px; cursor:pointer;}
-    button:hover {background:#2980b9;}
-    .error {color:red; margin:10px 0;}
-  </style>
-</head>
-<body>
-  <div class="box">
-    <h2>تسجيل الدخول</h2>
-    <form method="POST">
-      <input type="email" name="email" placeholder="البريد الإلكتروني" required>
-      <input type="password" name="password" placeholder="كلمة المرور" required>
-      <button type="submit">دخول</button>
-      <?php if (!empty($error)) echo "<div class='error'>$error</div>"; ?>
-    </form>
-  </div>
-</body>
-</html>
